@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royalty Prestige Community</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.8em;
+      background: linear-gradient(90deg, #00bfff, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      margin: 0 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00bfff, #ffd700);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    main {
+      margin-top: 120px;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .panel {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 40px;
+      margin: 30px;
+      width: 280px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.6s ease, box-shadow 0.4s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .panel:hover {
+      transform: rotateY(15deg) scale(1.05);
+      box-shadow: 0 0 50px  #000000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.5);
+      margin-top: 50px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Royalty Prestige</h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="about.html">Sobre</a>
+      <a href="tokenomics.html">Royaltys</a>
+      <a href="roadmap.html">Roadmap</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <h2>Bienvenido a Royalty Prestige Community</h2>
+    <p>La revolución digital de la moneda virtual con estilo, poder y visión de futuro.</p>
+
+    <div class="panel">Innovación y confianza para el futuro digital.</div>
+    <div class="panel">Tecnología blockchain avanzada y segura.</div>
+    <div class="panel">Crecimiento y comunidad en constante evolución.</div>
+  </main>
+
+  <footer>
+    <p>© 2025 Royalty Prestige Community. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

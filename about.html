@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre - Royalty Prestige Community</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: url(imgfondo.jpg.jpg) no-repeat center center/cover;
+      color: white;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(5px);
+      z-index: 0;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      z-index: 1001;
+    }
+
+    header h1 {
+      font-size: 1.8em;
+      background: linear-gradient(90deg, #00bfff, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      margin: 0 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s ease;
+      z-index: 1001;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #00bfff, #ffd700);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    main {
+      margin-top: 150px;
+      text-align: center;
+      padding: 50px;
+      animation: fadeIn 2s ease forwards;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #00bfff, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h3 {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+      color: #a8eb12;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+      font-size: 1.2em;
+      color: #e0e0e0;
+      background: rgba(0,0,0,0.5);
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,191,255,0.3);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0,0,0,0.5);
+      margin-top: 50px;
+      font-size: 0.9em;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Royalty Prestige</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="about.html">Sobre</a>
+      <a href="royaltys.html">Royaltys</a>
+      <a href="roadmap.html">Roadmap</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>The Nation</h2>
+    <h3>El territorio digital del futuro</h3>
+    <p>
+      THE NATION, es el nombre dado al desarrollo de esta industria que cambiará tu vida y transformará la vida de muchos en el mundo.<br><br>
+      The Nation es el territorio digital que te ofrecerá los medios para brindarte las garantías que necesitas para lograr una vida con calidad y bienestar.
+    </p>
+  </main>
+
+  <footer>
+    <p>© 2025 Royalty Prestige Community. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
+
