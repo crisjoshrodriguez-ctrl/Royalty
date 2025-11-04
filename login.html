@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar Sesión | Royalty Prestige</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script type="module">
+    // Importar Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+    // Tu configuración de Firebase (la misma que me diste)
+    const firebaseConfig = {
+      apiKey: "AIzaSyC5D0UZvagFsPZ1zxDnipZOj8mjSV_D6Z0",
+      authDomain: "royaltyprestige-3be25.firebaseapp.com",
+      projectId: "royaltyprestige-3be25",
+      storageBucket: "royaltyprestige-3be25.firebasestorage.app",
+      messagingSenderId: "538224535623",
+      appId: "1:538224535623:web:4122533eb5135e2bd96962",
+      measurementId: "G-0NS2S1YW48"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Manejo del formulario
+    window.loginUser = async () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        message.textContent = "Inicio de sesión exitoso ✅";
+        message.className = "text-green-500";
+        setTimeout(() => {
+          window.location.href = "royaltys.html"; // redirige al área de compras
+        }, 1500);
+      } catch (error) {
+        message.textContent = "Error: " + error.message;
+        message.className = "text-red-500";
+      }
+    };
+  </script>
+</head>
+
+<body class="bg-gradient-to-br from-gray-900 to-black flex justify-center items-center h-screen">
+  <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-xl w-96 text-center border border-gray-700">
+    <h1 class="text-3xl font-bold text-white mb-6">Royalty Prestige 👑</h1>
+    <p class="text-gray-400 mb-6">Inicia sesión para continuar</p>
+
+    <input id="email" type="email" placeholder="Correo electrónico" class="w-full mb-4 p-3 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <input id="password" type="password" placeholder="Contraseña" class="w-full mb-4 p-3 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+    <button onclick="loginUser()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded transition duration-200">Entrar</button>
+
+    <p id="message" class="mt-4"></p>
+
+    <p class="text-gray-400 mt-6">¿No tienes cuenta?
+      <a href="register.html" class="text-blue-400 hover:underline">Regístrate aquí</a>
+    </p>
+  </div>
+</body>
+</html>

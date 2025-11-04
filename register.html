@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro | Royalty Prestige</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+    // Tu configuración de Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyC5D0UZvagFsPZ1zxDnipZOj8mjSV_D6Z0",
+      authDomain: "royaltyprestige-3be25.firebaseapp.com",
+      projectId: "royaltyprestige-3be25",
+      storageBucket: "royaltyprestige-3be25.firebasestorage.app",
+      messagingSenderId: "538224535623",
+      appId: "1:538224535623:web:4122533eb5135e2bd96962",
+      measurementId: "G-0NS2S1YW48"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Manejar registro
+    window.registerUser = async () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm").value;
+      const message = document.getElementById("message");
+
+      if (password !== confirm) {
+        message.textContent = "❌ Las contraseñas no coinciden.";
+        message.className = "text-red-500";
+        return;
+      }
+
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        message.textContent = "✅ Registro exitoso. Redirigiendo...";
+        message.className = "text-green-500";
+        setTimeout(() => {
+          window.location.href = "login.html";
+        }, 1500);
+      } catch (error) {
+        message.textContent = "Error: " + error.message;
+        message.className = "text-red-500";
+      }
+    };
+  </script>
+</head>
+
+<body class="bg-gradient-to-br from-blue-900 via-indigo-900 to-black flex justify-center items-center h-screen">
+  <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-xl w-96 text-center border border-gray-700">
+    <h1 class="text-3xl font-bold text-white mb-6">Crea tu cuenta 👑</h1>
+    <p class="text-gray-400 mb-6">Regístrate para acceder a Royalty Prestige</p>
+
+    <input id="email" type="email" placeholder="Correo electrónico" class="w-full mb-4 p-3 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <input id="password" type="password" placeholder="Contraseña" class="w-full mb-4 p-3 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <input id="confirm" type="password" placeholder="Confirmar contraseña" class="w-full mb-4 p-3 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+    <button onclick="registerUser()" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded transition duration-200">Registrarse</button>
+
+    <p id="message" class="mt-4"></p>
+
+    <p class="text-gray-400 mt-6">¿Ya tienes cuenta?
+      <a href="login.html" class="text-blue-400 hover:underline">Inicia sesión</a>
+    </p>
+  </div>
+</body>
+</html>
